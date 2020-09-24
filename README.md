@@ -1,3 +1,14 @@
+### MySQL主从备份
+
+> 1. master文件夹是主数据库的docker构建
+> 2. slave文件夹是从数据库的docker构建
+> 3. my.cnf是数据库的配置文件
+> 4. docker-compose.yml构建docker
+> 5. sources.list是Linux的国内源文件可以用于替换
+> 6. dockerfiletmp是可以安装apt的docker文件
+
+- 启动 docker-compose -f docker-compose.yml up -d
+- 停止 docker-compose -f docker-compose.yml down
 
 从数据库
     show master status;
