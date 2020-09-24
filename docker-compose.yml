@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: master/Dockerfile
     environment:
-      - "MYSQL_ROOT_PASSWORD=prisma"
+      - "MYSQL_ROOT_PASSWORD=admin"
     links:
       - mysql-slave
     ports:
@@ -19,7 +19,7 @@ services:
       context: ./
       dockerfile: slave/Dockerfile
     environment:
-      - "MYSQL_ROOT_PASSWORD=prisma"
+      - "MYSQL_ROOT_PASSWORD=admin"
     ports:
       - "33066:3306"
     restart: always
