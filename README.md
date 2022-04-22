@@ -1,4 +1,4 @@
-### MySQL主从备份
+# MySQL主从备份
 
 > 1. master文件夹是主数据库的docker构建
 > 2. slave文件夹是从数据库的docker构建
@@ -15,21 +15,18 @@
     show  slave status;
 
     CHANGE MASTER TO
-		MASTER_HOST='mysql',
-		MASTER_USER='root',
-		MASTER_PASSWORD='prisma',
-		MASTER_LOG_FILE='replicas-mysql-bin.000003',
-		MASTER_LOG_POS=154;
+  MASTER_HOST='mysql',
+  MASTER_USER='root',
+  MASTER_PASSWORD='prisma',
+  MASTER_LOG_FILE='replicas-mysql-bin.000003',
+  MASTER_LOG_POS=154;
     stop slave;
     start slave;
 
-
     reset slave all;  #清除主从复制
-
 
 主数据库
     show master status;
-
 
     show binlog events in 'replicas-mysql-bin.000001';
 
@@ -39,8 +36,8 @@
 
     show variables like "sql_log_bin";
 
-
-
+<!-- set global general_log_file='/var/log/mysql/general_log.log' -->
+<!-- SET GLOBAL general_log = 'ON'; -->
     SET FOREIGN_KEY_CHECKS=0;
     -- ----------------------------
     -- Table structure for course
